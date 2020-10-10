@@ -1,3 +1,0 @@
-@Imports SMART_HOME_WS.Areas.HelpPage.ModelDescriptions
-@ModelType SimpleTypeModelDescription
-@Model.Documentation

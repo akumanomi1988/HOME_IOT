@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SMART_HOME_WS", "SMART_HOME_WS\SMART_HOME_WS.vbproj", "{936CC969-0226-4A15-B842-F5DCD833B594}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SMART_HOME_WS_TESTER", "SMART_HOME_WS_TESTER\SMART_HOME_WS_TESTER.vbproj", "{6817D4BD-A539-4321-A1EE-39456EAC02BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{936CC969-0226-4A15-B842-F5DCD833B594} = {936CC969-0226-4A15-B842-F5DCD833B594}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{936CC969-0226-4A15-B842-F5DCD833B594}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{936CC969-0226-4A15-B842-F5DCD833B594}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{936CC969-0226-4A15-B842-F5DCD833B594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6817D4BD-A539-4321-A1EE-39456EAC02BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6817D4BD-A539-4321-A1EE-39456EAC02BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6817D4BD-A539-4321-A1EE-39456EAC02BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6817D4BD-A539-4321-A1EE-39456EAC02BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

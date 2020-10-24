@@ -60,6 +60,8 @@ C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\obj\Debug\SMART_HOME_WS.vbproj
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\obj\Debug\SMART_HOME_WS.dll
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\obj\Debug\SMART_HOME_WS.xml
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\obj\Debug\SMART_HOME_WS.pdb
-C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\obj\Debug\SMART_HOME_WS.vbprojAssemblyReference.cache
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\bin\Newtonsoft.Json.dll
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\bin\Newtonsoft.Json.xml
+C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\obj\Debug\SMART_HOME_WS.vbprojAssemblyReference.cache
+C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\bin\SMART_HOME_CLASS.dll
+C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_WS\bin\SMART_HOME_CLASS.pdb

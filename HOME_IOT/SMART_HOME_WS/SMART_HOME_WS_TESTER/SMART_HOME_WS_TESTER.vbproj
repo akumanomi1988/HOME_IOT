@@ -75,7 +75,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\SH_WS\Reference.vb">
+    <Compile Include="Connected Services\SH_WS_Produccion\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SH_WS_Pruebas\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -115,10 +120,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SH_WS\SH_WS.wsdl" />
-    <None Include="Connected Services\SH_WS\SMART_HOME_WS_TESTER.SH_WS.HelloWorldResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="Connected Services\SH_WS_Produccion\SH_WS1.wsdl" />
+    <None Include="Connected Services\SH_WS_Pruebas\SH_WS.wsdl" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -134,22 +137,38 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\SH_WS\" />
+    <WCFMetadataStorage Include="Connected Services\SH_WS_Produccion\" />
+    <WCFMetadataStorage Include="Connected Services\SH_WS_Pruebas\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SH_WS\SH_WS.disco" />
+    <None Include="Connected Services\SH_WS_Pruebas\SH_WS.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SH_WS\configuration91.svcinfo" />
+    <None Include="Connected Services\SH_WS_Pruebas\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SH_WS\configuration.svcinfo" />
+    <None Include="Connected Services\SH_WS_Pruebas\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SH_WS\Reference.svcmap">
+    <None Include="Connected Services\SH_WS_Pruebas\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SH_WS_Produccion\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SH_WS_Produccion\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SH_WS_Produccion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SH_WS_Produccion\SH_WS1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

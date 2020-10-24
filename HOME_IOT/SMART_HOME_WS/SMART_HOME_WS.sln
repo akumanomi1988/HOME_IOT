@@ -10,6 +10,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SMART_HOME_WS_TESTER", "SMA
 		{936CC969-0226-4A15-B842-F5DCD833B594} = {936CC969-0226-4A15-B842-F5DCD833B594}
 	EndProjectSection
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SMART_HOME_CLASS", "SMART_HOME_CLASS\SMART_HOME_CLASS.vbproj", "{326C21EA-B1DB-4E56-9747-35FD19ED6AC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{6817D4BD-A539-4321-A1EE-39456EAC02BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6817D4BD-A539-4321-A1EE-39456EAC02BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6817D4BD-A539-4321-A1EE-39456EAC02BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326C21EA-B1DB-4E56-9747-35FD19ED6AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326C21EA-B1DB-4E56-9747-35FD19ED6AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326C21EA-B1DB-4E56-9747-35FD19ED6AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326C21EA-B1DB-4E56-9747-35FD19ED6AC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

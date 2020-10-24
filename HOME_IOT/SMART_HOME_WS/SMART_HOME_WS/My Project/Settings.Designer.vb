@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-L5M2P2L;Initial Catalog=HomePi;Integrated Security=True;Encry"& _ 
-            "pt=False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-L5M2P2L;Initial Catalog=HomePi;Persist Security Info=True;Use"& _ 
+            "r ID=HomePi;Password=HomePi_2021;Encrypt=False")>  _
         Public ReadOnly Property CONN() As String
             Get
                 Return CType(Me("CONN"),String)

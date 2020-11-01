@@ -54,7 +54,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+<<<<<<< HEAD
     <Reference Include="System.Web" />
+=======
+>>>>>>> 7dfd995b3d809acb120e4f59e3c1644631091fec
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -86,7 +89,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Form1.vb" />
+=======
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+>>>>>>> 7dfd995b3d809acb120e4f59e3c1644631091fec
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
@@ -169,8 +178,11 @@
   <ItemGroup>
     <None Include="Connected Services\SH_WS_Produccion\SH_WS1.disco" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <Content Include="HTMLPage1.html" />
   </ItemGroup>
+=======
+>>>>>>> 7dfd995b3d809acb120e4f59e3c1644631091fec
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

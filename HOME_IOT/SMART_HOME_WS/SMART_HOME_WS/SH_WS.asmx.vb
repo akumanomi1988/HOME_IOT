@@ -48,7 +48,7 @@ Public Class SH_WS
 	End Function
 	<WebMethod()>
 	<Script.Services.ScriptMethod(ResponseFormat:=ResponseFormat.Json, UseHttpGet:=True, XmlSerializeString:=True)>
-	Public Function GET_Calefaccion_Estado(ByVal Temperatura As String) As String
+	Public Function GET_Calefaccion_Encendida() As Boolean
 		Return JsonConvert.SerializeObject(_calefaccion.Encendido, Formatting.Indented)
 	End Function
 	<WebMethod()>
@@ -67,23 +67,6 @@ Public Class SH_WS
 		_calefaccion.Dispositivos.Find(Function(x) x.Nombre = Dispositivo).LoadLecturas(cantidad)
 		Return JsonConvert.SerializeObject(_calefaccion.Dispositivos.Find(Function(x) x.Nombre = Dispositivo).Lecturas.FindAll(Function(L) L.INSERTADA = True), Formatting.Indented)
 	End Function
-	'<WebMethod()>
-	'Public Function GET_Lecturas_Fechas(ByVal FechaIni As DateTime, ByVal FechaFin As DateTime) As String
-	'	Dim query As String
-	'	Dim dt As New DataTable
-	'	If FechaIni >= FechaFin Then
-	'		Return Nothing
-	'	Else
-	'		query = $"USE [HomePi] SELECT  * FROM [dbo].[LECTURAS] WHERE FECHA BETWEEN CAST('{FechaIni}' AS DATETIME) AND CAST('{FechaFin}' AS DATETIME) "
-	'		Using conn As New SqlConnection(My.Settings.CONN)
-	'			conn.Open()
-	'			Using da As New SqlDataAdapter(query, conn)
-	'				da.Fill(dt)
-	'			End Using
-	'		End Using
-	'		Return JsonConvert.SerializeObject(dt, Formatting.Indented)
-	'	End If
-	'End Function
 	<WebMethod()>
 	Public Function GET_Lecturas_Fecha(ByVal NombreDispositivo As String, ByVal Fecha As Date) As String
 		Return JsonConvert.SerializeObject(_calefaccion.Dispositivos.Find(Function(x) x.Nombre = NombreDispositivo).Lecturas.FindAll(Function(L) L.fecha_hora.Date = Fecha.Date), Formatting.Indented)
@@ -292,6 +275,15 @@ Public Class SH_WS
 		Private _Histeresis As Double
 		Private _UsuarioCambio As String
 		Private _FechaCambio As DateTime
+		Private _FrecuenciaMuestreo As Integer
+		Public Property FrecuenciaMuestreo() As Integer
+			Get
+				Return _FrecuenciaMuestreo
+			End Get
+			Set(ByVal value As Integer)
+				_FrecuenciaMuestreo = value
+			End Set
+		End Property
 		Public Property TemperaturaObjetivo() As Double
 			Get
 				Return _TemperaturaObjetivo
@@ -332,6 +324,14 @@ Public Class SH_WS
 			_Histeresis = histeresis
 			_UsuarioCambio = usuarioCambio
 			_FechaCambio = fechaCambio
+
+		End Sub
+		Public Sub New(TemperaturaObjetivo As Double, histeresis As Double, usuarioCambio As String, fechaCambio As Date, frecuenciaMuestreo As Integer)
+			_TemperaturaObjetivo = TemperaturaObjetivo
+			_Histeresis = histeresis
+			_UsuarioCambio = usuarioCambio
+			_FechaCambio = fechaCambio
+			_FrecuenciaMuestreo = frecuenciaMuestreo
 		End Sub
 		Public Sub New()
 		End Sub
@@ -470,13 +470,10 @@ Public Class SH_WS
 		Private _Configuracion As Configuracion
 		Public ReadOnly Property Encendido() As Boolean
 			Get
-				For Each dis As Dispositivo In _Dispositivos.FindAll(Function(x) x.Conectado = True)
-					dis.Lecturas.FindLast(Function(x) x.TEMPERATURA)
-				Next
+				Calefaccion_Estado()
 				Return _Encendido
 			End Get
 		End Property
-
 		Public Property Dispositivos() As List(Of Dispositivo)
 			Get
 				Return _Dispositivos
@@ -504,41 +501,22 @@ Public Class SH_WS
 #End Region
 #Region "Funciones"
 		Private Sub Calefaccion_Estado()
-			Dim query As String
-			Dim ds As New DataTable
-			query = $"USE [HomePi] SELECT TOP 1 
-	  case when  [TEMPERATURA_DESTINO] - [HISTERESIS] > @tempActual then 1 else 0 end as Encendido
-	  ,case when [TEMPERATURA_DESTINO] + [HISTERESIS] < @tempActual then 1 else 0 end as Apagado
-		FROM [HomePi].[dbo].[CONFIGURACION]"
-			Using conn As New SqlConnection(My.Settings.CONN)
-				conn.Open()
-				Using comm As New SqlCommand()
-					With comm
-						.Connection = conn
-						.CommandType = CommandType.Text
-						.CommandText = query
-						.Parameters.AddWithValue("@tempActual", 0)
-					End With
-					Using da As New SqlDataAdapter(comm)
-						da.Fill(ds)
-					End Using
-				End Using
-			End Using
-			For Each row As DataRow In ds.Rows
-				If row("Encendido") = 1 And _Encendido = False Then
-					_Encendido = True
-				End If
-				If row("Apagado") = 1 And _Encendido = True Then
-					_Encendido = False
-				End If
-			Next
+			If _Configuracion.TemperaturaObjetivo - _Configuracion.Histeresis > GET_MediaUltimasLecturas() And _Encendido = False Then
+				_Encendido = True
+			End If
+			If _Configuracion.TemperaturaObjetivo - _Configuracion.Histeresis < GET_MediaUltimasLecturas() And _Encendido = True Then
+				_Encendido = False
+			End If
 		End Sub
 		Private Function GET_MediaUltimasLecturas() As Double
-			For Each disp In _Dispositivos
-
+			Dim LecturasAcumuladas As Double = 0
+			Dim contador As Integer = 0
+			For Each disp In _Dispositivos.FindAll(Function(X) X.Conectado = True)
+				LecturasAcumuladas += disp.Lecturas.FindLast(Function(x) x.INSERTADA = True).TEMPERATURA
+				contador += 1
 			Next
-			Return 0
-        End Function
+			Return LecturasAcumuladas / contador
+		End Function
 		Public Function recupera_Dispositivos() As List(Of Dispositivo)
 			Dim pList As New List(Of Dispositivo)
 			Dim query As String
@@ -563,7 +541,7 @@ Public Class SH_WS
 			Dim pConfiguracion As New Configuracion
 			Dim query As String
 			Dim dt As New DataTable
-			query = $"USE [HomePi] SELECT top 1 [TEMPERATURA_DESTINO], [HISTERESIS] ,[USUARIO_CAMBIO] ,[FECHA_CAMBIO] FROM [dbo].[CONFIGURACION]"
+			query = $"USE [HomePi] SELECT top 1 [TEMPERATURA_DESTINO], [HISTERESIS] ,[USUARIO_CAMBIO] ,[FECHA_CAMBIO],[FRECUENCIA_MUESTREO] FROM [dbo].[CONFIGURACION]"
 			Using conn As New SqlConnection(My.Settings.CONN)
 				conn.Open()
 				Using da As New SqlDataAdapter(query, conn)
@@ -575,6 +553,7 @@ Public Class SH_WS
 				pConfiguracion.Histeresis = row("HISTERESIS")
 				pConfiguracion.UsuarioCambio = row("USUARIO_CAMBIO")
 				pConfiguracion.FechaCambio = row("FECHA_CAMBIO")
+				pConfiguracion.FrecuenciaMuestreo = row("FRECUENCIA_MUESTREO")
 			Next
 			Return pConfiguracion
 		End Function

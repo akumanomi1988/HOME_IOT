@@ -1,0 +1,46 @@
+{
+	"Encendido": false,
+	"Dispositivos": [
+		{
+			"tiempoReconexion": 0,
+			"conectado": false,
+			"nombre": "ESP",
+			"IP": "192.168.0.50",
+			"rol": "2",
+			"localizacion": "DORMITORIO",
+			"modelo": "ESP8266",
+			"lecturas": [
+				{
+					"fecha_hora": "2020-11-01T14:50:32.883",
+					"nombreDispositivo": "ESP",
+					"temperatura": 23.0,
+					"humedad": 44.0,
+					"insertada": true
+				}
+			]
+		},
+		{
+			"tiempoReconexion": 10,
+			"conectado": true,
+			"nombre": "ESP8266_TEST",
+			"IP": "192.168.0.55",
+			"rol": "2",
+			"localizacion": "TEST",
+			"modelo": "ESP8266",
+			"lecturas": [
+				{
+					"fecha_hora": "2020-11-08T18:04:55.58",
+					"nombreDispositivo": "ESP8266_TEST",
+					"temperatura": 22.15999999999999,
+					"humedad": 57.712222222222198,
+					"insertada": true
+				}				
+			]
+		}
+	],
+	"FrecuenciaMuestreo": 5,
+	"TemperaturaObjetivo": 22.0,
+	"Histeresis": 0.5,
+	"UsuarioCambio": "1",
+	"FechaCambio": "2020-10-22T16:35:41.717"
+}

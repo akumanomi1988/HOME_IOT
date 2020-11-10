@@ -18,54 +18,82 @@ Namespace SH_WS_Produccion
      System.ServiceModel.ServiceContractAttribute(ConfigurationName:="SH_WS_Produccion.SH_WSSoap")>  _
     Public Interface SH_WSSoap
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Lecturas_Insertar", ReplyAction:="*"),  _
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Login", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Lecturas_Insertar(ByVal NOMBRE_DISP As String, ByVal TEMPERATURA_ACTUAL As Double, ByVal HUMEDAD As Double) As Integer
+        Function Login(ByVal Nombre_Dispositivo As String, ByVal Usuario As String, ByVal Pwd As String) As Boolean
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Lecturas_Insertar", ReplyAction:="*")>  _
-        Function Lecturas_InsertarAsync(ByVal NOMBRE_DISP As String, ByVal TEMPERATURA_ACTUAL As Double, ByVal HUMEDAD As Double) As System.Threading.Tasks.Task(Of Integer)
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Login", ReplyAction:="*")>  _
+        Function LoginAsync(ByVal Nombre_Dispositivo As String, ByVal Usuario As String, ByVal Pwd As String) As System.Threading.Tasks.Task(Of Boolean)
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Lecturas_ultimas", ReplyAction:="*"),  _
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_TemperaturaObjetivo", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Lecturas_ultimas(ByVal cantidad As Integer) As String
+        Function GET_TemperaturaObjetivo() As String
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Lecturas_ultimas", ReplyAction:="*")>  _
-        Function Lecturas_ultimasAsync(ByVal cantidad As Integer) As System.Threading.Tasks.Task(Of String)
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_TemperaturaObjetivo", ReplyAction:="*")>  _
+        Function GET_TemperaturaObjetivoAsync() As System.Threading.Tasks.Task(Of String)
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Lecturas_Entre_Fechas", ReplyAction:="*"),  _
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/SET_TemperaturaObjetivo", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Lecturas_Entre_Fechas(ByVal FechaIni As Date, ByVal FechaFin As Date) As String
+        Function SET_TemperaturaObjetivo(ByVal NuevaTemp As Double) As String
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Lecturas_Entre_Fechas", ReplyAction:="*")>  _
-        Function Lecturas_Entre_FechasAsync(ByVal FechaIni As Date, ByVal FechaFin As Date) As System.Threading.Tasks.Task(Of String)
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/SET_TemperaturaObjetivo", ReplyAction:="*")>  _
+        Function SET_TemperaturaObjetivoAsync(ByVal NuevaTemp As Double) As System.Threading.Tasks.Task(Of String)
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Lecturas_Fecha", ReplyAction:="*"),  _
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Calefaccion", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Lecturas_Fecha(ByVal FechaIni As Date) As String
+        Function GET_Calefaccion() As String
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Lecturas_Fecha", ReplyAction:="*")>  _
-        Function Lecturas_FechaAsync(ByVal FechaIni As Date) As System.Threading.Tasks.Task(Of String)
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Calefaccion", ReplyAction:="*")>  _
+        Function GET_CalefaccionAsync() As System.Threading.Tasks.Task(Of String)
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Servidor_Fecha", ReplyAction:="*"),  _
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Calefaccion_Encendida", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Servidor_Fecha() As String
+        Function GET_Calefaccion_Encendida() As Boolean
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Servidor_Fecha", ReplyAction:="*")>  _
-        Function Servidor_FechaAsync() As System.Threading.Tasks.Task(Of String)
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Calefaccion_Encendida", ReplyAction:="*")>  _
+        Function GET_Calefaccion_EncendidaAsync() As System.Threading.Tasks.Task(Of Boolean)
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Dispositivos_Configuración", ReplyAction:="*"),  _
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/NEW_Lectura", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Dispositivos_Configuración(ByVal NombreDispositivo As String) As String
+        Function NEW_Lectura(ByVal NOMBRE_DISP As String, ByVal TEMPERATURA_ACTUAL As Double, ByVal HUMEDAD As Double) As Boolean
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Dispositivos_Configuración", ReplyAction:="*")>  _
-        Function Dispositivos_ConfiguraciónAsync(ByVal NombreDispositivo As String) As System.Threading.Tasks.Task(Of String)
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/NEW_Lectura", ReplyAction:="*")>  _
+        Function NEW_LecturaAsync(ByVal NOMBRE_DISP As String, ByVal TEMPERATURA_ACTUAL As Double, ByVal HUMEDAD As Double) As System.Threading.Tasks.Task(Of Boolean)
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Dispositivos_Nuevo", ReplyAction:="*"),  _
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Lecturas", ReplyAction:="*"),  _
          System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
-        Function Dispositivos_Nuevo(ByVal NOMBRE_DISP As String, ByVal IP As String, ByVal ROL As String, ByVal LOCALIZACION As String, ByVal MODELO As String, ByVal USUARIO As String, ByVal PWD As String) As Boolean
+        Function GET_Lecturas(ByVal Dispositivo As String, ByVal cantidad As Integer) As String
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/Dispositivos_Nuevo", ReplyAction:="*")>  _
-        Function Dispositivos_NuevoAsync(ByVal NOMBRE_DISP As String, ByVal IP As String, ByVal ROL As String, ByVal LOCALIZACION As String, ByVal MODELO As String, ByVal USUARIO As String, ByVal PWD As String) As System.Threading.Tasks.Task(Of Boolean)
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Lecturas", ReplyAction:="*")>  _
+        Function GET_LecturasAsync(ByVal Dispositivo As String, ByVal cantidad As Integer) As System.Threading.Tasks.Task(Of String)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Lecturas_Fecha", ReplyAction:="*"),  _
+         System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
+        Function GET_Lecturas_Fecha(ByVal NombreDispositivo As String, ByVal Fecha As Date) As String
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Lecturas_Fecha", ReplyAction:="*")>  _
+        Function GET_Lecturas_FechaAsync(ByVal NombreDispositivo As String, ByVal Fecha As Date) As System.Threading.Tasks.Task(Of String)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Servidor_Fecha", ReplyAction:="*"),  _
+         System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
+        Function GET_Servidor_Fecha() As String
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Servidor_Fecha", ReplyAction:="*")>  _
+        Function GET_Servidor_FechaAsync() As System.Threading.Tasks.Task(Of String)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Dispositivos_Configuración", ReplyAction:="*"),  _
+         System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
+        Function GET_Dispositivos_Configuración(ByVal NombreDispositivo As String) As String
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/GET_Dispositivos_Configuración", ReplyAction:="*")>  _
+        Function GET_Dispositivos_ConfiguraciónAsync(ByVal NombreDispositivo As String) As System.Threading.Tasks.Task(Of String)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/NEW_Dispositivo", ReplyAction:="*"),  _
+         System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults:=true)>  _
+        Function NEW_Dispositivo(ByVal NOMBRE_DISP As String, ByVal IP As String, ByVal ROL As String, ByVal LOCALIZACION As String, ByVal MODELO As String) As Boolean
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/NEW_Dispositivo", ReplyAction:="*")>  _
+        Function NEW_DispositivoAsync(ByVal NOMBRE_DISP As String, ByVal IP As String, ByVal ROL As String, ByVal LOCALIZACION As String, ByVal MODELO As String) As System.Threading.Tasks.Task(Of Boolean)
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -99,60 +127,92 @@ Namespace SH_WS_Produccion
             MyBase.New(binding, remoteAddress)
         End Sub
         
-        Public Function Lecturas_Insertar(ByVal NOMBRE_DISP As String, ByVal TEMPERATURA_ACTUAL As Double, ByVal HUMEDAD As Double) As Integer Implements SH_WS_Produccion.SH_WSSoap.Lecturas_Insertar
-            Return MyBase.Channel.Lecturas_Insertar(NOMBRE_DISP, TEMPERATURA_ACTUAL, HUMEDAD)
+        Public Function Login(ByVal Nombre_Dispositivo As String, ByVal Usuario As String, ByVal Pwd As String) As Boolean Implements SH_WS_Produccion.SH_WSSoap.Login
+            Return MyBase.Channel.Login(Nombre_Dispositivo, Usuario, Pwd)
         End Function
         
-        Public Function Lecturas_InsertarAsync(ByVal NOMBRE_DISP As String, ByVal TEMPERATURA_ACTUAL As Double, ByVal HUMEDAD As Double) As System.Threading.Tasks.Task(Of Integer) Implements SH_WS_Produccion.SH_WSSoap.Lecturas_InsertarAsync
-            Return MyBase.Channel.Lecturas_InsertarAsync(NOMBRE_DISP, TEMPERATURA_ACTUAL, HUMEDAD)
+        Public Function LoginAsync(ByVal Nombre_Dispositivo As String, ByVal Usuario As String, ByVal Pwd As String) As System.Threading.Tasks.Task(Of Boolean) Implements SH_WS_Produccion.SH_WSSoap.LoginAsync
+            Return MyBase.Channel.LoginAsync(Nombre_Dispositivo, Usuario, Pwd)
         End Function
         
-        Public Function Lecturas_ultimas(ByVal cantidad As Integer) As String Implements SH_WS_Produccion.SH_WSSoap.Lecturas_ultimas
-            Return MyBase.Channel.Lecturas_ultimas(cantidad)
+        Public Function GET_TemperaturaObjetivo() As String Implements SH_WS_Produccion.SH_WSSoap.GET_TemperaturaObjetivo
+            Return MyBase.Channel.GET_TemperaturaObjetivo
         End Function
         
-        Public Function Lecturas_ultimasAsync(ByVal cantidad As Integer) As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.Lecturas_ultimasAsync
-            Return MyBase.Channel.Lecturas_ultimasAsync(cantidad)
+        Public Function GET_TemperaturaObjetivoAsync() As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.GET_TemperaturaObjetivoAsync
+            Return MyBase.Channel.GET_TemperaturaObjetivoAsync
         End Function
         
-        Public Function Lecturas_Entre_Fechas(ByVal FechaIni As Date, ByVal FechaFin As Date) As String Implements SH_WS_Produccion.SH_WSSoap.Lecturas_Entre_Fechas
-            Return MyBase.Channel.Lecturas_Entre_Fechas(FechaIni, FechaFin)
+        Public Function SET_TemperaturaObjetivo(ByVal NuevaTemp As Double) As String Implements SH_WS_Produccion.SH_WSSoap.SET_TemperaturaObjetivo
+            Return MyBase.Channel.SET_TemperaturaObjetivo(NuevaTemp)
         End Function
         
-        Public Function Lecturas_Entre_FechasAsync(ByVal FechaIni As Date, ByVal FechaFin As Date) As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.Lecturas_Entre_FechasAsync
-            Return MyBase.Channel.Lecturas_Entre_FechasAsync(FechaIni, FechaFin)
+        Public Function SET_TemperaturaObjetivoAsync(ByVal NuevaTemp As Double) As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.SET_TemperaturaObjetivoAsync
+            Return MyBase.Channel.SET_TemperaturaObjetivoAsync(NuevaTemp)
         End Function
         
-        Public Function Lecturas_Fecha(ByVal FechaIni As Date) As String Implements SH_WS_Produccion.SH_WSSoap.Lecturas_Fecha
-            Return MyBase.Channel.Lecturas_Fecha(FechaIni)
+        Public Function GET_Calefaccion() As String Implements SH_WS_Produccion.SH_WSSoap.GET_Calefaccion
+            Return MyBase.Channel.GET_Calefaccion
         End Function
         
-        Public Function Lecturas_FechaAsync(ByVal FechaIni As Date) As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.Lecturas_FechaAsync
-            Return MyBase.Channel.Lecturas_FechaAsync(FechaIni)
+        Public Function GET_CalefaccionAsync() As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.GET_CalefaccionAsync
+            Return MyBase.Channel.GET_CalefaccionAsync
         End Function
         
-        Public Function Servidor_Fecha() As String Implements SH_WS_Produccion.SH_WSSoap.Servidor_Fecha
-            Return MyBase.Channel.Servidor_Fecha
+        Public Function GET_Calefaccion_Encendida() As Boolean Implements SH_WS_Produccion.SH_WSSoap.GET_Calefaccion_Encendida
+            Return MyBase.Channel.GET_Calefaccion_Encendida
         End Function
         
-        Public Function Servidor_FechaAsync() As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.Servidor_FechaAsync
-            Return MyBase.Channel.Servidor_FechaAsync
+        Public Function GET_Calefaccion_EncendidaAsync() As System.Threading.Tasks.Task(Of Boolean) Implements SH_WS_Produccion.SH_WSSoap.GET_Calefaccion_EncendidaAsync
+            Return MyBase.Channel.GET_Calefaccion_EncendidaAsync
         End Function
         
-        Public Function Dispositivos_Configuración(ByVal NombreDispositivo As String) As String Implements SH_WS_Produccion.SH_WSSoap.Dispositivos_Configuración
-            Return MyBase.Channel.Dispositivos_Configuración(NombreDispositivo)
+        Public Function NEW_Lectura(ByVal NOMBRE_DISP As String, ByVal TEMPERATURA_ACTUAL As Double, ByVal HUMEDAD As Double) As Boolean Implements SH_WS_Produccion.SH_WSSoap.NEW_Lectura
+            Return MyBase.Channel.NEW_Lectura(NOMBRE_DISP, TEMPERATURA_ACTUAL, HUMEDAD)
         End Function
         
-        Public Function Dispositivos_ConfiguraciónAsync(ByVal NombreDispositivo As String) As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.Dispositivos_ConfiguraciónAsync
-            Return MyBase.Channel.Dispositivos_ConfiguraciónAsync(NombreDispositivo)
+        Public Function NEW_LecturaAsync(ByVal NOMBRE_DISP As String, ByVal TEMPERATURA_ACTUAL As Double, ByVal HUMEDAD As Double) As System.Threading.Tasks.Task(Of Boolean) Implements SH_WS_Produccion.SH_WSSoap.NEW_LecturaAsync
+            Return MyBase.Channel.NEW_LecturaAsync(NOMBRE_DISP, TEMPERATURA_ACTUAL, HUMEDAD)
         End Function
         
-        Public Function Dispositivos_Nuevo(ByVal NOMBRE_DISP As String, ByVal IP As String, ByVal ROL As String, ByVal LOCALIZACION As String, ByVal MODELO As String, ByVal USUARIO As String, ByVal PWD As String) As Boolean Implements SH_WS_Produccion.SH_WSSoap.Dispositivos_Nuevo
-            Return MyBase.Channel.Dispositivos_Nuevo(NOMBRE_DISP, IP, ROL, LOCALIZACION, MODELO, USUARIO, PWD)
+        Public Function GET_Lecturas(ByVal Dispositivo As String, ByVal cantidad As Integer) As String Implements SH_WS_Produccion.SH_WSSoap.GET_Lecturas
+            Return MyBase.Channel.GET_Lecturas(Dispositivo, cantidad)
         End Function
         
-        Public Function Dispositivos_NuevoAsync(ByVal NOMBRE_DISP As String, ByVal IP As String, ByVal ROL As String, ByVal LOCALIZACION As String, ByVal MODELO As String, ByVal USUARIO As String, ByVal PWD As String) As System.Threading.Tasks.Task(Of Boolean) Implements SH_WS_Produccion.SH_WSSoap.Dispositivos_NuevoAsync
-            Return MyBase.Channel.Dispositivos_NuevoAsync(NOMBRE_DISP, IP, ROL, LOCALIZACION, MODELO, USUARIO, PWD)
+        Public Function GET_LecturasAsync(ByVal Dispositivo As String, ByVal cantidad As Integer) As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.GET_LecturasAsync
+            Return MyBase.Channel.GET_LecturasAsync(Dispositivo, cantidad)
+        End Function
+        
+        Public Function GET_Lecturas_Fecha(ByVal NombreDispositivo As String, ByVal Fecha As Date) As String Implements SH_WS_Produccion.SH_WSSoap.GET_Lecturas_Fecha
+            Return MyBase.Channel.GET_Lecturas_Fecha(NombreDispositivo, Fecha)
+        End Function
+        
+        Public Function GET_Lecturas_FechaAsync(ByVal NombreDispositivo As String, ByVal Fecha As Date) As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.GET_Lecturas_FechaAsync
+            Return MyBase.Channel.GET_Lecturas_FechaAsync(NombreDispositivo, Fecha)
+        End Function
+        
+        Public Function GET_Servidor_Fecha() As String Implements SH_WS_Produccion.SH_WSSoap.GET_Servidor_Fecha
+            Return MyBase.Channel.GET_Servidor_Fecha
+        End Function
+        
+        Public Function GET_Servidor_FechaAsync() As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.GET_Servidor_FechaAsync
+            Return MyBase.Channel.GET_Servidor_FechaAsync
+        End Function
+        
+        Public Function GET_Dispositivos_Configuración(ByVal NombreDispositivo As String) As String Implements SH_WS_Produccion.SH_WSSoap.GET_Dispositivos_Configuración
+            Return MyBase.Channel.GET_Dispositivos_Configuración(NombreDispositivo)
+        End Function
+        
+        Public Function GET_Dispositivos_ConfiguraciónAsync(ByVal NombreDispositivo As String) As System.Threading.Tasks.Task(Of String) Implements SH_WS_Produccion.SH_WSSoap.GET_Dispositivos_ConfiguraciónAsync
+            Return MyBase.Channel.GET_Dispositivos_ConfiguraciónAsync(NombreDispositivo)
+        End Function
+        
+        Public Function NEW_Dispositivo(ByVal NOMBRE_DISP As String, ByVal IP As String, ByVal ROL As String, ByVal LOCALIZACION As String, ByVal MODELO As String) As Boolean Implements SH_WS_Produccion.SH_WSSoap.NEW_Dispositivo
+            Return MyBase.Channel.NEW_Dispositivo(NOMBRE_DISP, IP, ROL, LOCALIZACION, MODELO)
+        End Function
+        
+        Public Function NEW_DispositivoAsync(ByVal NOMBRE_DISP As String, ByVal IP As String, ByVal ROL As String, ByVal LOCALIZACION As String, ByVal MODELO As String) As System.Threading.Tasks.Task(Of Boolean) Implements SH_WS_Produccion.SH_WSSoap.NEW_DispositivoAsync
+            Return MyBase.Channel.NEW_DispositivoAsync(NOMBRE_DISP, IP, ROL, LOCALIZACION, MODELO)
         End Function
     End Class
 End Namespace

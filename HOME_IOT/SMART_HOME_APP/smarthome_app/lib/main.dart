@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
+import 'home_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(HomePage());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.lightGreen,
         visualDensity: VisualDensity.comfortable,
       ),
-      home: MyHomePage(title: 'SMART HOME\nDashboard'),
+      home: HomePage(),
     );
   }
 }

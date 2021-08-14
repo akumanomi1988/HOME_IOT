@@ -160,6 +160,9 @@ Public Class SH_WS
 		End Property
 #End Region
 #Region "Constructor"
+		Public Sub New()
+
+		End Sub
 		Public Sub New(nombre As String, iP As String, rol As String, localizacion As String, modelo As String, Optional CantidadLecturasCargaInicial As Integer = 1)
 			_nombre = nombre
 			_IP = iP

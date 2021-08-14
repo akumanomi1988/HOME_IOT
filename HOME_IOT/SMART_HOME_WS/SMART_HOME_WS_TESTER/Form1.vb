@@ -1,11 +1,14 @@
 ﻿Imports Newtonsoft.Json
 Public Class Form1
 	Private WithEvents _binding As BindingSource
-	Private _wsClient As SH_WS_Produccion.SH_WSSoapClient
-	Private _calefaccion As SMART_HOME_WS.SH_WS.Calefaccion
+	Private _Dispositivo As SMART_HOME_WS.SH_WS.Dispositivo
+
 	Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-		_wsClient = New SH_WS_Produccion.SH_WSSoapClient()
-		_calefaccion = JsonConvert.DeserializeObject(_wsClient.GET_Calefaccion(), GetType(SMART_HOME_WS.SH_WS.Calefaccion))
-		_binding.DataSource = _wsClient.GET_Calefaccion()
+		_Dispositivo = New
+		Chart1.DataSource = _Dispositivo.lecturas
+	End Sub
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
 	End Sub
 End Class

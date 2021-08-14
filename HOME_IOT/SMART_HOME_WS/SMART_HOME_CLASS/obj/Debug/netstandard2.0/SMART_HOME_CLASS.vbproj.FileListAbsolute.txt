@@ -1,9 +1,9 @@
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\bin\Debug\netstandard2.0\SMART_HOME_CLASS.deps.json
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\bin\Debug\netstandard2.0\SMART_HOME_CLASS.dll
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\bin\Debug\netstandard2.0\SMART_HOME_CLASS.pdb
-C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\obj\Debug\netstandard2.0\SMART_HOME_CLASS.vbprojAssemblyReference.cache
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\obj\Debug\netstandard2.0\SMART_HOME_CLASS.AssemblyInfoInputs.cache
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\obj\Debug\netstandard2.0\SMART_HOME_CLASS.AssemblyInfo.vb
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\obj\Debug\netstandard2.0\SMART_HOME_CLASS.vbproj.CoreCompileInputs.cache
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\obj\Debug\netstandard2.0\SMART_HOME_CLASS.dll
 C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\obj\Debug\netstandard2.0\SMART_HOME_CLASS.pdb
+C:\Proyectos\HOME_IOT\SMART_HOME_WS\SMART_HOME_CLASS\obj\Debug\netstandard2.0\SMART_HOME_CLASS.vbproj.AssemblyReference.cache

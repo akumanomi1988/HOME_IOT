@@ -91,7 +91,7 @@ Public Class SH_WS
 		Private _lecturas As List(Of Lectura)
 		Private _conectado As Boolean
 		Private _tiempoReconexion As Integer
-		Public Property tiempoReconexion() As Integer
+		Public Property TiempoReconexion() As Integer
 			Get
 				Return _tiempoReconexion
 			End Get
@@ -99,18 +99,18 @@ Public Class SH_WS
 				_tiempoReconexion = value
 			End Set
 		End Property
-		Public Property conectado() As Boolean
+		Public Property Conectado() As Boolean
 			Get
 				Return _conectado
 			End Get
 			Set(ByVal value As Boolean)
 				If value Then
-					tiempoReconexion = 10
+					TiempoReconexion = 10
 				End If
 				_conectado = value
 			End Set
 		End Property
-		Public Property nombre() As String
+		Public Property Nombre() As String
 			Get
 				Return _nombre
 			End Get
@@ -126,7 +126,7 @@ Public Class SH_WS
 				_IP = value
 			End Set
 		End Property
-		Public Property rol() As String
+		Public Property Rol() As String
 			Get
 				Return _rol
 			End Get
@@ -134,7 +134,7 @@ Public Class SH_WS
 				_rol = value
 			End Set
 		End Property
-		Public Property localizacion() As String
+		Public Property Localizacion() As String
 			Get
 				Return _localizacion
 			End Get
@@ -142,7 +142,7 @@ Public Class SH_WS
 				_localizacion = value
 			End Set
 		End Property
-		Public Property modelo() As String
+		Public Property Modelo() As String
 			Get
 				Return _modelo
 			End Get
@@ -150,7 +150,7 @@ Public Class SH_WS
 				_modelo = value
 			End Set
 		End Property
-		Public Property lecturas() As List(Of Lectura)
+		Public Property Lecturas() As List(Of Lectura)
 			Get
 				Return _lecturas
 			End Get

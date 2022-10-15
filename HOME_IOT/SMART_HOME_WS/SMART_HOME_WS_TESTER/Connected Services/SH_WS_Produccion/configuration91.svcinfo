@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="sMdgbVf97gJMxLa1kX3bt9Fuurw/r1oC2ldmmNCXoag=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="PKFGtv7f2BcxYOWIKIQVQ6QoEE9OKvXoNEnsxbKrWss=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="SH_WSSoap2">
       <properties>
@@ -348,7 +348,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="SH_WSSoap121" contract="SH_WS_Produccion.SH_WSSoap" bindingType="customBinding" address="http://192.168.0.150/SH_WS.asmx" bindingConfiguration="SH_WSSoap121">
+    <endpoint name="SH_WSSoap12" contract="SH_WS_Produccion.SH_WSSoap" bindingType="customBinding" address="http://192.168.0.150/SH_WS.asmx" bindingConfiguration="SH_WSSoap121">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://192.168.0.150/SH_WS.asmx</serializedValue>
@@ -423,7 +423,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>SH_WSSoap121</serializedValue>
+          <serializedValue>SH_WSSoap12</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

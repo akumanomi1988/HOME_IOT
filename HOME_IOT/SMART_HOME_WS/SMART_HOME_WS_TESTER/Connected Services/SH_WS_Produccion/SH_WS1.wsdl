@@ -2,7 +2,67 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="Lecturas_Insertar">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre_Dispositivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_TemperaturaObjetivo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GET_TemperaturaObjetivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_TemperaturaObjetivoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SET_TemperaturaObjetivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NuevaTemp" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SET_TemperaturaObjetivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SET_TemperaturaObjetivoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_Calefaccion">
+        <s:complexType />
+      </s:element>
+      <s:element name="GET_CalefaccionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GET_CalefaccionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GET_Calefaccion_Encendida">
+        <s:complexType />
+      </s:element>
+      <s:element name="GET_Calefaccion_EncendidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GET_Calefaccion_EncendidaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NEW_Lectura">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="NOMBRE_DISP" type="s:string" />
@@ -11,81 +71,68 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Lecturas_InsertarResponse">
+      <s:element name="NEW_LecturaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="Lecturas_InsertarResult" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NEW_LecturaResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Lecturas_ultimas">
+      <s:element name="GET_Lecturas">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Dispositivo" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="cantidad" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Lecturas_ultimasResponse">
+      <s:element name="GET_LecturasResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Lecturas_ultimasResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GET_LecturasResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Lecturas_Entre_Fechas">
+      <s:element name="GET_Lecturas_Fecha">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="FechaIni" type="s:dateTime" />
-            <s:element minOccurs="1" maxOccurs="1" name="FechaFin" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreDispositivo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Lecturas_Entre_FechasResponse">
+      <s:element name="GET_Lecturas_FechaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Lecturas_Entre_FechasResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GET_Lecturas_FechaResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Lecturas_Fecha">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="FechaIni" type="s:dateTime" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Lecturas_FechaResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Lecturas_FechaResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Servidor_Fecha">
+      <s:element name="GET_Servidor_Fecha">
         <s:complexType />
       </s:element>
-      <s:element name="Servidor_FechaResponse">
+      <s:element name="GET_Servidor_FechaResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Servidor_FechaResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GET_Servidor_FechaResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Dispositivos_Configuración">
+      <s:element name="GET_Dispositivos_Configuración">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="NombreDispositivo" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Dispositivos_ConfiguraciónResponse">
+      <s:element name="GET_Dispositivos_ConfiguraciónResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Dispositivos_ConfiguraciónResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GET_Dispositivos_ConfiguraciónResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Dispositivos_Nuevo">
+      <s:element name="NEW_Dispositivo">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="NOMBRE_DISP" type="s:string" />
@@ -93,257 +140,364 @@
             <s:element minOccurs="0" maxOccurs="1" name="ROL" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="LOCALIZACION" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="MODELO" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="USUARIO" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Dispositivos_NuevoResponse">
+      <s:element name="NEW_DispositivoResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="Dispositivos_NuevoResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="NEW_DispositivoResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="int" type="s:int" />
-      <s:element name="string" nillable="true" type="s:string" />
       <s:element name="boolean" type="s:boolean" />
+      <s:element name="string" nillable="true" type="s:string" />
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="Lecturas_InsertarSoapIn">
-    <wsdl:part name="parameters" element="tns:Lecturas_Insertar" />
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_InsertarSoapOut">
-    <wsdl:part name="parameters" element="tns:Lecturas_InsertarResponse" />
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_ultimasSoapIn">
-    <wsdl:part name="parameters" element="tns:Lecturas_ultimas" />
+  <wsdl:message name="GET_TemperaturaObjetivoSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_TemperaturaObjetivo" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_ultimasSoapOut">
-    <wsdl:part name="parameters" element="tns:Lecturas_ultimasResponse" />
+  <wsdl:message name="GET_TemperaturaObjetivoSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_TemperaturaObjetivoResponse" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_Entre_FechasSoapIn">
-    <wsdl:part name="parameters" element="tns:Lecturas_Entre_Fechas" />
+  <wsdl:message name="SET_TemperaturaObjetivoSoapIn">
+    <wsdl:part name="parameters" element="tns:SET_TemperaturaObjetivo" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_Entre_FechasSoapOut">
-    <wsdl:part name="parameters" element="tns:Lecturas_Entre_FechasResponse" />
+  <wsdl:message name="SET_TemperaturaObjetivoSoapOut">
+    <wsdl:part name="parameters" element="tns:SET_TemperaturaObjetivoResponse" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_FechaSoapIn">
-    <wsdl:part name="parameters" element="tns:Lecturas_Fecha" />
+  <wsdl:message name="GET_CalefaccionSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_Calefaccion" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_FechaSoapOut">
-    <wsdl:part name="parameters" element="tns:Lecturas_FechaResponse" />
+  <wsdl:message name="GET_CalefaccionSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_CalefaccionResponse" />
   </wsdl:message>
-  <wsdl:message name="Servidor_FechaSoapIn">
-    <wsdl:part name="parameters" element="tns:Servidor_Fecha" />
+  <wsdl:message name="GET_Calefaccion_EncendidaSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_Calefaccion_Encendida" />
   </wsdl:message>
-  <wsdl:message name="Servidor_FechaSoapOut">
-    <wsdl:part name="parameters" element="tns:Servidor_FechaResponse" />
+  <wsdl:message name="GET_Calefaccion_EncendidaSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_Calefaccion_EncendidaResponse" />
   </wsdl:message>
-  <wsdl:message name="Dispositivos_ConfiguraciónSoapIn">
-    <wsdl:part name="parameters" element="tns:Dispositivos_Configuración" />
+  <wsdl:message name="NEW_LecturaSoapIn">
+    <wsdl:part name="parameters" element="tns:NEW_Lectura" />
   </wsdl:message>
-  <wsdl:message name="Dispositivos_ConfiguraciónSoapOut">
-    <wsdl:part name="parameters" element="tns:Dispositivos_ConfiguraciónResponse" />
+  <wsdl:message name="NEW_LecturaSoapOut">
+    <wsdl:part name="parameters" element="tns:NEW_LecturaResponse" />
   </wsdl:message>
-  <wsdl:message name="Dispositivos_NuevoSoapIn">
-    <wsdl:part name="parameters" element="tns:Dispositivos_Nuevo" />
+  <wsdl:message name="GET_LecturasSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_Lecturas" />
   </wsdl:message>
-  <wsdl:message name="Dispositivos_NuevoSoapOut">
-    <wsdl:part name="parameters" element="tns:Dispositivos_NuevoResponse" />
+  <wsdl:message name="GET_LecturasSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_LecturasResponse" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_InsertarHttpGetIn">
-    <wsdl:part name="NOMBRE_DISP" type="s:string" />
-    <wsdl:part name="TEMPERATURA_ACTUAL" type="s:string" />
-    <wsdl:part name="HUMEDAD" type="s:string" />
+  <wsdl:message name="GET_Lecturas_FechaSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_Lecturas_Fecha" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_InsertarHttpGetOut">
-    <wsdl:part name="Body" element="tns:int" />
+  <wsdl:message name="GET_Lecturas_FechaSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_Lecturas_FechaResponse" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_ultimasHttpGetIn">
-    <wsdl:part name="cantidad" type="s:string" />
+  <wsdl:message name="GET_Servidor_FechaSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_Servidor_Fecha" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_ultimasHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+  <wsdl:message name="GET_Servidor_FechaSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_Servidor_FechaResponse" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_Entre_FechasHttpGetIn">
-    <wsdl:part name="FechaIni" type="s:string" />
-    <wsdl:part name="FechaFin" type="s:string" />
+  <wsdl:message name="GET_Dispositivos_ConfiguraciónSoapIn">
+    <wsdl:part name="parameters" element="tns:GET_Dispositivos_Configuración" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_Entre_FechasHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+  <wsdl:message name="GET_Dispositivos_ConfiguraciónSoapOut">
+    <wsdl:part name="parameters" element="tns:GET_Dispositivos_ConfiguraciónResponse" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_FechaHttpGetIn">
-    <wsdl:part name="FechaIni" type="s:string" />
+  <wsdl:message name="NEW_DispositivoSoapIn">
+    <wsdl:part name="parameters" element="tns:NEW_Dispositivo" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_FechaHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+  <wsdl:message name="NEW_DispositivoSoapOut">
+    <wsdl:part name="parameters" element="tns:NEW_DispositivoResponse" />
   </wsdl:message>
-  <wsdl:message name="Servidor_FechaHttpGetIn" />
-  <wsdl:message name="Servidor_FechaHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
+  <wsdl:message name="LoginHttpGetIn">
+    <wsdl:part name="Nombre_Dispositivo" type="s:string" />
+    <wsdl:part name="Usuario" type="s:string" />
+    <wsdl:part name="Pwd" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="Dispositivos_ConfiguraciónHttpGetIn">
-    <wsdl:part name="NombreDispositivo" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="Dispositivos_ConfiguraciónHttpGetOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
-  <wsdl:message name="Dispositivos_NuevoHttpGetIn">
-    <wsdl:part name="NOMBRE_DISP" type="s:string" />
-    <wsdl:part name="IP" type="s:string" />
-    <wsdl:part name="ROL" type="s:string" />
-    <wsdl:part name="LOCALIZACION" type="s:string" />
-    <wsdl:part name="MODELO" type="s:string" />
-    <wsdl:part name="USUARIO" type="s:string" />
-    <wsdl:part name="PWD" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="Dispositivos_NuevoHttpGetOut">
+  <wsdl:message name="LoginHttpGetOut">
     <wsdl:part name="Body" element="tns:boolean" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_InsertarHttpPostIn">
+  <wsdl:message name="GET_TemperaturaObjetivoHttpGetIn" />
+  <wsdl:message name="GET_TemperaturaObjetivoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SET_TemperaturaObjetivoHttpGetIn">
+    <wsdl:part name="NuevaTemp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SET_TemperaturaObjetivoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_CalefaccionHttpGetIn" />
+  <wsdl:message name="GET_CalefaccionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_Calefaccion_EncendidaHttpGetIn" />
+  <wsdl:message name="GET_Calefaccion_EncendidaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="NEW_LecturaHttpGetIn">
     <wsdl:part name="NOMBRE_DISP" type="s:string" />
     <wsdl:part name="TEMPERATURA_ACTUAL" type="s:string" />
     <wsdl:part name="HUMEDAD" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_InsertarHttpPostOut">
-    <wsdl:part name="Body" element="tns:int" />
+  <wsdl:message name="NEW_LecturaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_ultimasHttpPostIn">
+  <wsdl:message name="GET_LecturasHttpGetIn">
+    <wsdl:part name="Dispositivo" type="s:string" />
     <wsdl:part name="cantidad" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_ultimasHttpPostOut">
+  <wsdl:message name="GET_LecturasHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_Entre_FechasHttpPostIn">
-    <wsdl:part name="FechaIni" type="s:string" />
-    <wsdl:part name="FechaFin" type="s:string" />
+  <wsdl:message name="GET_Lecturas_FechaHttpGetIn">
+    <wsdl:part name="NombreDispositivo" type="s:string" />
+    <wsdl:part name="Fecha" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_Entre_FechasHttpPostOut">
+  <wsdl:message name="GET_Lecturas_FechaHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="Lecturas_FechaHttpPostIn">
-    <wsdl:part name="FechaIni" type="s:string" />
-  </wsdl:message>
-  <wsdl:message name="Lecturas_FechaHttpPostOut">
+  <wsdl:message name="GET_Servidor_FechaHttpGetIn" />
+  <wsdl:message name="GET_Servidor_FechaHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="Servidor_FechaHttpPostIn" />
-  <wsdl:message name="Servidor_FechaHttpPostOut">
-    <wsdl:part name="Body" element="tns:string" />
-  </wsdl:message>
-  <wsdl:message name="Dispositivos_ConfiguraciónHttpPostIn">
+  <wsdl:message name="GET_Dispositivos_ConfiguraciónHttpGetIn">
     <wsdl:part name="NombreDispositivo" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="Dispositivos_ConfiguraciónHttpPostOut">
+  <wsdl:message name="GET_Dispositivos_ConfiguraciónHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
-  <wsdl:message name="Dispositivos_NuevoHttpPostIn">
+  <wsdl:message name="NEW_DispositivoHttpGetIn">
     <wsdl:part name="NOMBRE_DISP" type="s:string" />
     <wsdl:part name="IP" type="s:string" />
     <wsdl:part name="ROL" type="s:string" />
     <wsdl:part name="LOCALIZACION" type="s:string" />
     <wsdl:part name="MODELO" type="s:string" />
-    <wsdl:part name="USUARIO" type="s:string" />
-    <wsdl:part name="PWD" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="Dispositivos_NuevoHttpPostOut">
+  <wsdl:message name="NEW_DispositivoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostIn">
+    <wsdl:part name="Nombre_Dispositivo" type="s:string" />
+    <wsdl:part name="Usuario" type="s:string" />
+    <wsdl:part name="Pwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GET_TemperaturaObjetivoHttpPostIn" />
+  <wsdl:message name="GET_TemperaturaObjetivoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SET_TemperaturaObjetivoHttpPostIn">
+    <wsdl:part name="NuevaTemp" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SET_TemperaturaObjetivoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_CalefaccionHttpPostIn" />
+  <wsdl:message name="GET_CalefaccionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_Calefaccion_EncendidaHttpPostIn" />
+  <wsdl:message name="GET_Calefaccion_EncendidaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="NEW_LecturaHttpPostIn">
+    <wsdl:part name="NOMBRE_DISP" type="s:string" />
+    <wsdl:part name="TEMPERATURA_ACTUAL" type="s:string" />
+    <wsdl:part name="HUMEDAD" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NEW_LecturaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GET_LecturasHttpPostIn">
+    <wsdl:part name="Dispositivo" type="s:string" />
+    <wsdl:part name="cantidad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_LecturasHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_Lecturas_FechaHttpPostIn">
+    <wsdl:part name="NombreDispositivo" type="s:string" />
+    <wsdl:part name="Fecha" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_Lecturas_FechaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_Servidor_FechaHttpPostIn" />
+  <wsdl:message name="GET_Servidor_FechaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_Dispositivos_ConfiguraciónHttpPostIn">
+    <wsdl:part name="NombreDispositivo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GET_Dispositivos_ConfiguraciónHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NEW_DispositivoHttpPostIn">
+    <wsdl:part name="NOMBRE_DISP" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="ROL" type="s:string" />
+    <wsdl:part name="LOCALIZACION" type="s:string" />
+    <wsdl:part name="MODELO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NEW_DispositivoHttpPostOut">
     <wsdl:part name="Body" element="tns:boolean" />
   </wsdl:message>
   <wsdl:portType name="SH_WSSoap">
-    <wsdl:operation name="Lecturas_Insertar">
-      <wsdl:input message="tns:Lecturas_InsertarSoapIn" />
-      <wsdl:output message="tns:Lecturas_InsertarSoapOut" />
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_ultimas">
-      <wsdl:input message="tns:Lecturas_ultimasSoapIn" />
-      <wsdl:output message="tns:Lecturas_ultimasSoapOut" />
+    <wsdl:operation name="GET_TemperaturaObjetivo">
+      <wsdl:input message="tns:GET_TemperaturaObjetivoSoapIn" />
+      <wsdl:output message="tns:GET_TemperaturaObjetivoSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Entre_Fechas">
-      <wsdl:input message="tns:Lecturas_Entre_FechasSoapIn" />
-      <wsdl:output message="tns:Lecturas_Entre_FechasSoapOut" />
+    <wsdl:operation name="SET_TemperaturaObjetivo">
+      <wsdl:input message="tns:SET_TemperaturaObjetivoSoapIn" />
+      <wsdl:output message="tns:SET_TemperaturaObjetivoSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Fecha">
-      <wsdl:input message="tns:Lecturas_FechaSoapIn" />
-      <wsdl:output message="tns:Lecturas_FechaSoapOut" />
+    <wsdl:operation name="GET_Calefaccion">
+      <wsdl:input message="tns:GET_CalefaccionSoapIn" />
+      <wsdl:output message="tns:GET_CalefaccionSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Servidor_Fecha">
-      <wsdl:input message="tns:Servidor_FechaSoapIn" />
-      <wsdl:output message="tns:Servidor_FechaSoapOut" />
+    <wsdl:operation name="GET_Calefaccion_Encendida">
+      <wsdl:input message="tns:GET_Calefaccion_EncendidaSoapIn" />
+      <wsdl:output message="tns:GET_Calefaccion_EncendidaSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Configuración">
-      <wsdl:input message="tns:Dispositivos_ConfiguraciónSoapIn" />
-      <wsdl:output message="tns:Dispositivos_ConfiguraciónSoapOut" />
+    <wsdl:operation name="NEW_Lectura">
+      <wsdl:input message="tns:NEW_LecturaSoapIn" />
+      <wsdl:output message="tns:NEW_LecturaSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Nuevo">
-      <wsdl:input message="tns:Dispositivos_NuevoSoapIn" />
-      <wsdl:output message="tns:Dispositivos_NuevoSoapOut" />
+    <wsdl:operation name="GET_Lecturas">
+      <wsdl:input message="tns:GET_LecturasSoapIn" />
+      <wsdl:output message="tns:GET_LecturasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Lecturas_Fecha">
+      <wsdl:input message="tns:GET_Lecturas_FechaSoapIn" />
+      <wsdl:output message="tns:GET_Lecturas_FechaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Servidor_Fecha">
+      <wsdl:input message="tns:GET_Servidor_FechaSoapIn" />
+      <wsdl:output message="tns:GET_Servidor_FechaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Dispositivos_Configuración">
+      <wsdl:input message="tns:GET_Dispositivos_ConfiguraciónSoapIn" />
+      <wsdl:output message="tns:GET_Dispositivos_ConfiguraciónSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NEW_Dispositivo">
+      <wsdl:input message="tns:NEW_DispositivoSoapIn" />
+      <wsdl:output message="tns:NEW_DispositivoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="SH_WSHttpGet">
-    <wsdl:operation name="Lecturas_Insertar">
-      <wsdl:input message="tns:Lecturas_InsertarHttpGetIn" />
-      <wsdl:output message="tns:Lecturas_InsertarHttpGetOut" />
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginHttpGetIn" />
+      <wsdl:output message="tns:LoginHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_ultimas">
-      <wsdl:input message="tns:Lecturas_ultimasHttpGetIn" />
-      <wsdl:output message="tns:Lecturas_ultimasHttpGetOut" />
+    <wsdl:operation name="GET_TemperaturaObjetivo">
+      <wsdl:input message="tns:GET_TemperaturaObjetivoHttpGetIn" />
+      <wsdl:output message="tns:GET_TemperaturaObjetivoHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Entre_Fechas">
-      <wsdl:input message="tns:Lecturas_Entre_FechasHttpGetIn" />
-      <wsdl:output message="tns:Lecturas_Entre_FechasHttpGetOut" />
+    <wsdl:operation name="SET_TemperaturaObjetivo">
+      <wsdl:input message="tns:SET_TemperaturaObjetivoHttpGetIn" />
+      <wsdl:output message="tns:SET_TemperaturaObjetivoHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Fecha">
-      <wsdl:input message="tns:Lecturas_FechaHttpGetIn" />
-      <wsdl:output message="tns:Lecturas_FechaHttpGetOut" />
+    <wsdl:operation name="GET_Calefaccion">
+      <wsdl:input message="tns:GET_CalefaccionHttpGetIn" />
+      <wsdl:output message="tns:GET_CalefaccionHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="Servidor_Fecha">
-      <wsdl:input message="tns:Servidor_FechaHttpGetIn" />
-      <wsdl:output message="tns:Servidor_FechaHttpGetOut" />
+    <wsdl:operation name="GET_Calefaccion_Encendida">
+      <wsdl:input message="tns:GET_Calefaccion_EncendidaHttpGetIn" />
+      <wsdl:output message="tns:GET_Calefaccion_EncendidaHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Configuración">
-      <wsdl:input message="tns:Dispositivos_ConfiguraciónHttpGetIn" />
-      <wsdl:output message="tns:Dispositivos_ConfiguraciónHttpGetOut" />
+    <wsdl:operation name="NEW_Lectura">
+      <wsdl:input message="tns:NEW_LecturaHttpGetIn" />
+      <wsdl:output message="tns:NEW_LecturaHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Nuevo">
-      <wsdl:input message="tns:Dispositivos_NuevoHttpGetIn" />
-      <wsdl:output message="tns:Dispositivos_NuevoHttpGetOut" />
+    <wsdl:operation name="GET_Lecturas">
+      <wsdl:input message="tns:GET_LecturasHttpGetIn" />
+      <wsdl:output message="tns:GET_LecturasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Lecturas_Fecha">
+      <wsdl:input message="tns:GET_Lecturas_FechaHttpGetIn" />
+      <wsdl:output message="tns:GET_Lecturas_FechaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Servidor_Fecha">
+      <wsdl:input message="tns:GET_Servidor_FechaHttpGetIn" />
+      <wsdl:output message="tns:GET_Servidor_FechaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Dispositivos_Configuración">
+      <wsdl:input message="tns:GET_Dispositivos_ConfiguraciónHttpGetIn" />
+      <wsdl:output message="tns:GET_Dispositivos_ConfiguraciónHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NEW_Dispositivo">
+      <wsdl:input message="tns:NEW_DispositivoHttpGetIn" />
+      <wsdl:output message="tns:NEW_DispositivoHttpGetOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="SH_WSHttpPost">
-    <wsdl:operation name="Lecturas_Insertar">
-      <wsdl:input message="tns:Lecturas_InsertarHttpPostIn" />
-      <wsdl:output message="tns:Lecturas_InsertarHttpPostOut" />
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginHttpPostIn" />
+      <wsdl:output message="tns:LoginHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_ultimas">
-      <wsdl:input message="tns:Lecturas_ultimasHttpPostIn" />
-      <wsdl:output message="tns:Lecturas_ultimasHttpPostOut" />
+    <wsdl:operation name="GET_TemperaturaObjetivo">
+      <wsdl:input message="tns:GET_TemperaturaObjetivoHttpPostIn" />
+      <wsdl:output message="tns:GET_TemperaturaObjetivoHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Entre_Fechas">
-      <wsdl:input message="tns:Lecturas_Entre_FechasHttpPostIn" />
-      <wsdl:output message="tns:Lecturas_Entre_FechasHttpPostOut" />
+    <wsdl:operation name="SET_TemperaturaObjetivo">
+      <wsdl:input message="tns:SET_TemperaturaObjetivoHttpPostIn" />
+      <wsdl:output message="tns:SET_TemperaturaObjetivoHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Fecha">
-      <wsdl:input message="tns:Lecturas_FechaHttpPostIn" />
-      <wsdl:output message="tns:Lecturas_FechaHttpPostOut" />
+    <wsdl:operation name="GET_Calefaccion">
+      <wsdl:input message="tns:GET_CalefaccionHttpPostIn" />
+      <wsdl:output message="tns:GET_CalefaccionHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="Servidor_Fecha">
-      <wsdl:input message="tns:Servidor_FechaHttpPostIn" />
-      <wsdl:output message="tns:Servidor_FechaHttpPostOut" />
+    <wsdl:operation name="GET_Calefaccion_Encendida">
+      <wsdl:input message="tns:GET_Calefaccion_EncendidaHttpPostIn" />
+      <wsdl:output message="tns:GET_Calefaccion_EncendidaHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Configuración">
-      <wsdl:input message="tns:Dispositivos_ConfiguraciónHttpPostIn" />
-      <wsdl:output message="tns:Dispositivos_ConfiguraciónHttpPostOut" />
+    <wsdl:operation name="NEW_Lectura">
+      <wsdl:input message="tns:NEW_LecturaHttpPostIn" />
+      <wsdl:output message="tns:NEW_LecturaHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Nuevo">
-      <wsdl:input message="tns:Dispositivos_NuevoHttpPostIn" />
-      <wsdl:output message="tns:Dispositivos_NuevoHttpPostOut" />
+    <wsdl:operation name="GET_Lecturas">
+      <wsdl:input message="tns:GET_LecturasHttpPostIn" />
+      <wsdl:output message="tns:GET_LecturasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Lecturas_Fecha">
+      <wsdl:input message="tns:GET_Lecturas_FechaHttpPostIn" />
+      <wsdl:output message="tns:GET_Lecturas_FechaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Servidor_Fecha">
+      <wsdl:input message="tns:GET_Servidor_FechaHttpPostIn" />
+      <wsdl:output message="tns:GET_Servidor_FechaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GET_Dispositivos_Configuración">
+      <wsdl:input message="tns:GET_Dispositivos_ConfiguraciónHttpPostIn" />
+      <wsdl:output message="tns:GET_Dispositivos_ConfiguraciónHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NEW_Dispositivo">
+      <wsdl:input message="tns:NEW_DispositivoHttpPostIn" />
+      <wsdl:output message="tns:NEW_DispositivoHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SH_WSSoap" type="tns:SH_WSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="Lecturas_Insertar">
-      <soap:operation soapAction="http://tempuri.org/Lecturas_Insertar" style="document" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -351,8 +505,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_ultimas">
-      <soap:operation soapAction="http://tempuri.org/Lecturas_ultimas" style="document" />
+    <wsdl:operation name="GET_TemperaturaObjetivo">
+      <soap:operation soapAction="http://tempuri.org/GET_TemperaturaObjetivo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -360,8 +514,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Entre_Fechas">
-      <soap:operation soapAction="http://tempuri.org/Lecturas_Entre_Fechas" style="document" />
+    <wsdl:operation name="SET_TemperaturaObjetivo">
+      <soap:operation soapAction="http://tempuri.org/SET_TemperaturaObjetivo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -369,8 +523,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Fecha">
-      <soap:operation soapAction="http://tempuri.org/Lecturas_Fecha" style="document" />
+    <wsdl:operation name="GET_Calefaccion">
+      <soap:operation soapAction="http://tempuri.org/GET_Calefaccion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -378,8 +532,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Servidor_Fecha">
-      <soap:operation soapAction="http://tempuri.org/Servidor_Fecha" style="document" />
+    <wsdl:operation name="GET_Calefaccion_Encendida">
+      <soap:operation soapAction="http://tempuri.org/GET_Calefaccion_Encendida" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -387,8 +541,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Configuración">
-      <soap:operation soapAction="http://tempuri.org/Dispositivos_Configuración" style="document" />
+    <wsdl:operation name="NEW_Lectura">
+      <soap:operation soapAction="http://tempuri.org/NEW_Lectura" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -396,8 +550,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Nuevo">
-      <soap:operation soapAction="http://tempuri.org/Dispositivos_Nuevo" style="document" />
+    <wsdl:operation name="GET_Lecturas">
+      <soap:operation soapAction="http://tempuri.org/GET_Lecturas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Lecturas_Fecha">
+      <soap:operation soapAction="http://tempuri.org/GET_Lecturas_Fecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Servidor_Fecha">
+      <soap:operation soapAction="http://tempuri.org/GET_Servidor_Fecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Dispositivos_Configuración">
+      <soap:operation soapAction="http://tempuri.org/GET_Dispositivos_Configuración" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NEW_Dispositivo">
+      <soap:operation soapAction="http://tempuri.org/NEW_Dispositivo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -408,8 +598,8 @@
   </wsdl:binding>
   <wsdl:binding name="SH_WSSoap12" type="tns:SH_WSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="Lecturas_Insertar">
-      <soap12:operation soapAction="http://tempuri.org/Lecturas_Insertar" style="document" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -417,8 +607,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_ultimas">
-      <soap12:operation soapAction="http://tempuri.org/Lecturas_ultimas" style="document" />
+    <wsdl:operation name="GET_TemperaturaObjetivo">
+      <soap12:operation soapAction="http://tempuri.org/GET_TemperaturaObjetivo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -426,8 +616,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Entre_Fechas">
-      <soap12:operation soapAction="http://tempuri.org/Lecturas_Entre_Fechas" style="document" />
+    <wsdl:operation name="SET_TemperaturaObjetivo">
+      <soap12:operation soapAction="http://tempuri.org/SET_TemperaturaObjetivo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -435,8 +625,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Fecha">
-      <soap12:operation soapAction="http://tempuri.org/Lecturas_Fecha" style="document" />
+    <wsdl:operation name="GET_Calefaccion">
+      <soap12:operation soapAction="http://tempuri.org/GET_Calefaccion" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -444,8 +634,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Servidor_Fecha">
-      <soap12:operation soapAction="http://tempuri.org/Servidor_Fecha" style="document" />
+    <wsdl:operation name="GET_Calefaccion_Encendida">
+      <soap12:operation soapAction="http://tempuri.org/GET_Calefaccion_Encendida" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -453,8 +643,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Configuración">
-      <soap12:operation soapAction="http://tempuri.org/Dispositivos_Configuración" style="document" />
+    <wsdl:operation name="NEW_Lectura">
+      <soap12:operation soapAction="http://tempuri.org/NEW_Lectura" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -462,8 +652,44 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Nuevo">
-      <soap12:operation soapAction="http://tempuri.org/Dispositivos_Nuevo" style="document" />
+    <wsdl:operation name="GET_Lecturas">
+      <soap12:operation soapAction="http://tempuri.org/GET_Lecturas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Lecturas_Fecha">
+      <soap12:operation soapAction="http://tempuri.org/GET_Lecturas_Fecha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Servidor_Fecha">
+      <soap12:operation soapAction="http://tempuri.org/GET_Servidor_Fecha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Dispositivos_Configuración">
+      <soap12:operation soapAction="http://tempuri.org/GET_Dispositivos_Configuración" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NEW_Dispositivo">
+      <soap12:operation soapAction="http://tempuri.org/NEW_Dispositivo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -474,8 +700,8 @@
   </wsdl:binding>
   <wsdl:binding name="SH_WSHttpGet" type="tns:SH_WSHttpGet">
     <http:binding verb="GET" />
-    <wsdl:operation name="Lecturas_Insertar">
-      <http:operation location="/Lecturas_Insertar" />
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -483,8 +709,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_ultimas">
-      <http:operation location="/Lecturas_ultimas" />
+    <wsdl:operation name="GET_TemperaturaObjetivo">
+      <http:operation location="/GET_TemperaturaObjetivo" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -492,8 +718,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Entre_Fechas">
-      <http:operation location="/Lecturas_Entre_Fechas" />
+    <wsdl:operation name="SET_TemperaturaObjetivo">
+      <http:operation location="/SET_TemperaturaObjetivo" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -501,8 +727,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Fecha">
-      <http:operation location="/Lecturas_Fecha" />
+    <wsdl:operation name="GET_Calefaccion">
+      <http:operation location="/GET_Calefaccion" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -510,8 +736,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Servidor_Fecha">
-      <http:operation location="/Servidor_Fecha" />
+    <wsdl:operation name="GET_Calefaccion_Encendida">
+      <http:operation location="/GET_Calefaccion_Encendida" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -519,8 +745,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Configuración">
-      <http:operation location="/Dispositivos_Configuración" />
+    <wsdl:operation name="NEW_Lectura">
+      <http:operation location="/NEW_Lectura" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -528,8 +754,44 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Nuevo">
-      <http:operation location="/Dispositivos_Nuevo" />
+    <wsdl:operation name="GET_Lecturas">
+      <http:operation location="/GET_Lecturas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Lecturas_Fecha">
+      <http:operation location="/GET_Lecturas_Fecha" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Servidor_Fecha">
+      <http:operation location="/GET_Servidor_Fecha" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Dispositivos_Configuración">
+      <http:operation location="/GET_Dispositivos_Configuración" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NEW_Dispositivo">
+      <http:operation location="/NEW_Dispositivo" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -540,8 +802,8 @@
   </wsdl:binding>
   <wsdl:binding name="SH_WSHttpPost" type="tns:SH_WSHttpPost">
     <http:binding verb="POST" />
-    <wsdl:operation name="Lecturas_Insertar">
-      <http:operation location="/Lecturas_Insertar" />
+    <wsdl:operation name="Login">
+      <http:operation location="/Login" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -549,8 +811,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_ultimas">
-      <http:operation location="/Lecturas_ultimas" />
+    <wsdl:operation name="GET_TemperaturaObjetivo">
+      <http:operation location="/GET_TemperaturaObjetivo" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -558,8 +820,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Entre_Fechas">
-      <http:operation location="/Lecturas_Entre_Fechas" />
+    <wsdl:operation name="SET_TemperaturaObjetivo">
+      <http:operation location="/SET_TemperaturaObjetivo" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -567,8 +829,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Lecturas_Fecha">
-      <http:operation location="/Lecturas_Fecha" />
+    <wsdl:operation name="GET_Calefaccion">
+      <http:operation location="/GET_Calefaccion" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -576,8 +838,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Servidor_Fecha">
-      <http:operation location="/Servidor_Fecha" />
+    <wsdl:operation name="GET_Calefaccion_Encendida">
+      <http:operation location="/GET_Calefaccion_Encendida" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -585,8 +847,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Configuración">
-      <http:operation location="/Dispositivos_Configuración" />
+    <wsdl:operation name="NEW_Lectura">
+      <http:operation location="/NEW_Lectura" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -594,8 +856,44 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Dispositivos_Nuevo">
-      <http:operation location="/Dispositivos_Nuevo" />
+    <wsdl:operation name="GET_Lecturas">
+      <http:operation location="/GET_Lecturas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Lecturas_Fecha">
+      <http:operation location="/GET_Lecturas_Fecha" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Servidor_Fecha">
+      <http:operation location="/GET_Servidor_Fecha" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GET_Dispositivos_Configuración">
+      <http:operation location="/GET_Dispositivos_Configuración" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NEW_Dispositivo">
+      <http:operation location="/NEW_Dispositivo" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

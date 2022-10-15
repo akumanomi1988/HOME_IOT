@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GnCEBg56fYZ4+tORlmlkwViifzQWf0cTnJp4EfjBp1AWH0O6svaMQenNYt9YKmGsDD9ke602fvK0qZATd0Gl9A==",
+  "dgSpecHash": "iNM84eOCJJlc9MLthhA6jiOwshd0fVcw3jynzUoWZCKrrDZnQ5bIodwHQ0Dt2CX8MlPy6j/mIxCwfao4crG9OA==",
   "success": true,
-  "projectFilePath": "C:\\Proyectos\\HOME_IOT\\SMART_HOME_WS\\SMART_HOME_CLASS\\SMART_HOME_CLASS.vbproj",
+  "projectFilePath": "C:\\Users\\d.mozota\\Documents\\GitHub\\HOME_IOT\\HOME_IOT\\SMART_HOME_WS\\SMART_HOME_CLASS\\SMART_HOME_CLASS.vbproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mozot\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\mozot\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

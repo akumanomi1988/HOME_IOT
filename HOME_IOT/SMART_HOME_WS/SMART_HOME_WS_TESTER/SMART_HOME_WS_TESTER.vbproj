@@ -48,17 +48,17 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-<<<<<<< HEAD
-    <Reference Include="System.Web" />
-=======
->>>>>>> 7dfd995b3d809acb120e4f59e3c1644631091fec
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -89,17 +89,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Form1.vb" />
-=======
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
->>>>>>> 7dfd995b3d809acb120e4f59e3c1644631091fec
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="IfaceImplement.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -134,12 +131,14 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\SMART_HOME_WS_TESTER.SH_WS_Produccion.SH_WSSoap.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -178,11 +177,11 @@
   <ItemGroup>
     <None Include="Connected Services\SH_WS_Produccion\SH_WS1.disco" />
   </ItemGroup>
-<<<<<<< HEAD
   <ItemGroup>
-    <Content Include="HTMLPage1.html" />
+    <ProjectReference Include="..\SMART_HOME_WS\SMART_HOME_WS.vbproj">
+      <Project>{936cc969-0226-4a15-b842-f5dcd833b594}</Project>
+      <Name>SMART_HOME_WS</Name>
+    </ProjectReference>
   </ItemGroup>
-=======
->>>>>>> 7dfd995b3d809acb120e4f59e3c1644631091fec
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
